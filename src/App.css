@@ -1,184 +1,805 @@
-.counter {
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: var(--accent);
-  background: var(--accent-bg);
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
-  margin-bottom: 24px;
-
-  &:hover {
-    border-color: var(--accent-border);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
+.wrap {
+  width: min(1280px, calc(100% - 112px));
+  margin-inline: auto;
 }
-
+.site-header {
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 42px;
+  font-weight: 600;
+  letter-spacing: -2px;
+}
+.brand svg {
+  width: 36px;
+}
+.brand-dot {
+  color: var(--lake);
+}
+nav {
+  display: flex;
+  gap: 36px;
+}
+nav a,
+.header-book {
+  font-size: 15px;
+  text-decoration: none;
+}
+nav a:hover {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+.header-book {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  border-bottom: 1px solid #80929a;
+  padding: 10px 0;
+}
+.header-book span {
+  font-size: 21px;
+}
 .hero {
-  position: relative;
-
-  .base,
-  .framework,
-  .vite {
-    inset-inline: 0;
-    margin: 0 auto;
-  }
-
-  .base {
-    width: 170px;
-    position: relative;
-    z-index: 0;
-  }
-
-  .framework,
-  .vite {
-    position: absolute;
-  }
-
-  .framework {
-    z-index: 1;
-    top: 34px;
-    height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
-  }
-
-  .vite {
-    z-index: 0;
-    top: 107px;
-    height: 26px;
-    width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
-  }
+  display: grid;
+  grid-template-columns: 0.94fr 1.06fr;
+  gap: 40px;
+  padding-top: 18px;
+  padding-bottom: 68px;
+  align-items: center;
 }
-
-#center {
+.hero-copy {
+  padding: 23px 0;
+}
+.location {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 14px;
+  margin-bottom: 26px;
+}
+.location-dot {
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  background: #668575;
+}
+h1 {
+  font-size: clamp(65px, 6.8vw, 98px);
+  line-height: 1.02;
+  letter-spacing: -5.5px;
+}
+.hero-copy > p {
+  max-width: 330px;
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 27px 0 30px;
+  color: #46606c;
+}
+.button {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 35px;
+  min-height: 55px;
+  padding: 15px 23px;
+  border: 0;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+}
+.primary {
+  background: var(--lake);
+  color: white;
+}
+.primary:hover {
+  background: var(--deep);
+}
+.button > span {
+  font-size: 22px;
+  line-height: 1;
+}
+.hero-note {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  margin-top: 31px;
+  color: #526a75;
+}
+.small-wave {
+  font-family: serif;
+  font-size: 32px;
+  line-height: 1;
+}
+.hero-photo {
+  height: 620px;
+  position: relative;
+  border-radius: 160px 160px 5px 5px;
+  overflow: hidden;
+  background: #9caeb7;
+}
+.hero-photo > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 55%;
+}
+.hero-photo:after {
+  content: "";
+  position: absolute;
+  inset: 65% 0 0;
+  background: linear-gradient(transparent, rgba(10, 31, 40, 0.65));
+  pointer-events: none;
+}
+.hero-photo figcaption {
+  position: absolute;
+  bottom: 24px;
+  left: 27px;
+  right: 27px;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  color: white;
+  z-index: 1;
+  font-size: 12px;
+}
+.photo-stamp {
+  position: absolute;
+  right: 24px;
+  top: 28px;
+  background: var(--mist);
+  border-radius: 50%;
+  width: 104px;
+  height: 104px;
   display: flex;
   flex-direction: column;
-  gap: 25px;
-  place-content: center;
-  place-items: center;
-  flex-grow: 1;
-
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  transform: rotate(9deg);
 }
-
-#next-steps {
+.photo-stamp svg {
+  width: 28px;
+  height: 26px;
+}
+.photo-stamp span {
+  font-size: 12px;
+  line-height: 1.15;
+  text-align: center;
+}
+.intro-band {
+  background: #e1e9e9;
+  padding: 43px 0;
+}
+.ritual-content {
+  display: grid;
+  grid-template-columns: 0.7fr 2fr 0.6fr;
+  gap: 50px;
+  align-items: center;
+}
+.ritual-symbol {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 70px;
+  letter-spacing: -4px;
+}
+.ritual-content h2 {
+  font-size: 24px;
+  letter-spacing: -0.6px;
+  margin-bottom: 10px;
+}
+.ritual-content p {
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 590px;
+  color: #46606c;
+}
+.ritual-translation {
+  font-size: 13px;
+  line-height: 1.7;
+  border-left: 1px solid #b8c8cb;
+  padding-left: 30px;
+}
+.sauna-section {
+  padding-block: 86px 60px;
+}
+.section-heading {
   display: flex;
-  border-top: 1px solid var(--border);
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
+  margin-bottom: 35px;
+}
+h2 {
+  font-size: 44px;
+  letter-spacing: -1.8px;
+  line-height: 1.12;
+}
+.section-heading > p {
+  color: #46606c;
+  font-size: 16px;
+  line-height: 1.6;
+  padding-bottom: 4px;
+}
+.sauna-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+.sauna-option {
   text-align: left;
-
-  & > div {
-    flex: 1 1 0;
-    padding: 32px;
-    @media (max-width: 1024px) {
-      padding: 24px 20px;
-    }
-  }
-
-  .icon {
-    margin-bottom: 16px;
-    width: 22px;
-    height: 22px;
-  }
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-#docs {
-  border-right: 1px solid var(--border);
-
-  @media (max-width: 1024px) {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
-}
-
-#next-steps ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 8px;
-  margin: 32px 0 0;
-
-  .logo {
-    height: 18px;
-  }
-
-  a {
-    color: var(--text-h);
-    font-size: 16px;
-    border-radius: 6px;
-    background: var(--social-bg);
-    display: flex;
-    padding: 6px 12px;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
-
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    margin-top: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
-
-    a {
-      width: 100%;
-      justify-content: center;
-      box-sizing: border-box;
-    }
-  }
-}
-
-#spacer {
-  height: 88px;
-  border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
-    height: 48px;
-  }
-}
-
-.ticks {
+  border: 1px solid #b9c9ce;
+  background: transparent;
+  border-radius: 6px;
+  padding: 25px 29px;
+  color: var(--deep);
   position: relative;
+}
+.sauna-option.is-selected {
+  background: #e3ebed;
+  border: 2px solid var(--lake);
+  padding: 24px 28px;
+}
+.sauna-option-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #46606c;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+.selection-indicator {
+  width: 23px;
+  height: 23px;
+  border: 1px solid #9bacb2;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+}
+.is-selected .selection-indicator {
+  background: var(--lake);
+  border-color: var(--lake);
+  color: white;
+}
+.sauna-option h3 {
+  font-size: 30px;
+  letter-spacing: -1px;
+  margin-bottom: 7px;
+}
+.sauna-option p {
+  font-size: 16px;
+  color: #46606c;
+}
+.sauna-option-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  font-size: 14px;
+}
+.sauna-option-bottom strong {
+  font-size: 24px;
+  font-weight: 500;
+}
+.booking-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 90px;
+  background: #dfe8e9;
+  border-radius: 8px;
+  padding: 55px 60px;
+  margin-top: 10px;
+}
+.booking-copy {
+  padding-top: 5px;
+}
+.booking-icon {
+  display: block;
+  margin-bottom: 24px;
+}
+.booking-copy > p {
+  font-size: 17px;
+  line-height: 1.65;
+  max-width: 290px;
+  margin-top: 24px;
+  color: #46606c;
+}
+.booking-copy .included {
+  font-size: 14px;
+  margin-top: 28px;
+}
+.booking-form {
+  background: white;
+  border-radius: 6px;
+  padding: 29px 30px;
+}
+.form-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  gap: 10px;
+}
+.form-heading h3 {
+  font-size: 24px;
+  letter-spacing: -0.6px;
+}
+.form-heading > span {
+  font-size: 13px;
+  color: #526a75;
+}
+.booking-form label,
+.booking-form legend {
+  font-size: 14px;
+  display: block;
+  margin-bottom: 7px;
+}
+.booking-form select,
+.booking-form input[type="date"] {
   width: 100%;
-
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: -4.5px;
-    border: 5px solid transparent;
+  height: 45px;
+  background: #fff;
+  border: 1px solid #b9c9ce;
+  border-radius: 3px;
+  padding: 9px 11px;
+  color: var(--deep);
+  min-width: 0;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 15px;
+  margin-top: 18px;
+}
+.form-row > div {
+  min-width: 0;
+}
+.booking-form fieldset {
+  border: 0;
+  margin: 19px 0 0;
+  padding: 0;
+  min-width: 0;
+}
+.time-options {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 9px;
+}
+.time-options label {
+  position: relative;
+  margin: 0;
+}
+.time-options input {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  cursor: pointer;
+}
+.time-options span {
+  display: block;
+  text-align: center;
+  border: 1px solid #b9c9ce;
+  padding: 9px 2px;
+  border-radius: 3px;
+  font-size: 14px;
+}
+.time-options .chosen-time span {
+  background: var(--lake);
+  border-color: var(--lake);
+  color: #fff;
+}
+.time-options input:focus-visible + span {
+  outline: 3px solid #547e93;
+  outline-offset: 3px;
+}
+.booking-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 22px 0 18px;
+  font-size: 14px;
+}
+.booking-total strong {
+  font-size: 26px;
+  font-weight: 500;
+}
+.booking-form .button {
+  width: 100%;
+}
+.booking-disclaimer {
+  font-size: 12px;
+  color: #526a75;
+  text-align: center;
+  line-height: 1.5;
+  margin-top: 12px;
+}
+.visit-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 90px;
+  padding-block: 85px;
+}
+.visit-section h2 {
+  font-size: 38px;
+}
+.visit-details details {
+  border-bottom: 1px solid #b9c9ce;
+}
+.visit-details details:first-child {
+  border-top: 1px solid #b9c9ce;
+}
+.visit-details summary {
+  cursor: pointer;
+  padding: 18px 28px 18px 0;
+  list-style: none;
+  position: relative;
+  font-size: 17px;
+}
+.visit-details summary::-webkit-details-marker {
+  display: none;
+}
+.visit-details summary:after {
+  content: "+";
+  position: absolute;
+  right: 3px;
+  top: 15px;
+  font-size: 23px;
+  font-weight: 400;
+}
+.visit-details details[open] summary:after {
+  content: "−";
+}
+.visit-details details p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #46606c;
+  max-width: 430px;
+  margin: 0 0 20px;
+}
+footer {
+  border-top: 1px solid #b9c9ce;
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  padding-block: 26px 33px;
+}
+footer .brand {
+  font-size: 34px;
+}
+footer .brand svg {
+  width: 30px;
+}
+footer p {
+  font-size: 14px;
+}
+footer > span {
+  font-size: 12px;
+  color: #526a75;
+  margin-left: auto;
+}
+.skip-link {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  transform: translateY(-200%);
+  z-index: 10;
+  background: white;
+  padding: 10px;
+}
+.skip-link:focus {
+  transform: none;
+}
+.plan-dialog {
+  border: 0;
+  border-radius: 12px;
+  padding: 38px;
+  max-width: 460px;
+  width: calc(100% - 32px);
+  color: var(--deep);
+  background: var(--mist);
+}
+.plan-dialog::backdrop {
+  background: #15344099;
+  backdrop-filter: blur(5px);
+}
+.dialog-close {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 30px;
+  background: transparent;
+  border: 0;
+  color: var(--deep);
+  padding: 5px 10px;
+}
+.plan-dialog > svg {
+  margin-bottom: 20px;
+}
+.plan-dialog h2 {
+  font-size: 40px;
+}
+.plan-intro {
+  margin: 18px 0;
+  color: #46606c;
+}
+.plan-dialog dl {
+  margin: 24px 0;
+}
+.plan-dialog dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 12px 0;
+  border-bottom: 1px solid #b9c9ce;
+  font-size: 15px;
+}
+.plan-dialog dd {
+  margin: 0;
+  text-align: right;
+}
+.plan-dialog dt {
+  color: #46606c;
+}
+.preview-note {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 22px;
+}
+.plan-dialog .button {
+  width: 100%;
+  justify-content: center;
+}
+@media (min-width: 1600px) {
+  .hero {
+    gap: 80px;
   }
-
-  &::before {
-    left: 0;
-    border-left-color: var(--border);
+  .hero-photo {
+    height: 680px;
   }
-  &::after {
-    right: 0;
-    border-right-color: var(--border);
+}
+@media (max-width: 1050px) {
+  .wrap {
+    width: calc(100% - 64px);
+  }
+  .site-header {
+    height: 95px;
+  }
+  nav {
+    gap: 23px;
+  }
+  .hero {
+    gap: 25px;
+  }
+  .hero-photo {
+    height: 580px;
+    border-radius: 130px 130px 5px 5px;
+  }
+  h1 {
+    font-size: 76px;
+    letter-spacing: -4px;
+  }
+  .hero-copy > p {
+    font-size: 17px;
+    max-width: 300px;
+  }
+  .hero-photo figcaption {
+    flex-direction: column;
+    gap: 3px;
+  }
+  .ritual-content {
+    gap: 28px;
+    grid-template-columns: 0.6fr 2fr;
+  }
+  .ritual-translation {
+    display: none;
+  }
+  .ritual-symbol {
+    font-size: 60px;
+  }
+  .booking-section {
+    gap: 35px;
+    padding: 40px 30px;
+  }
+  .booking-form {
+    padding: 25px 20px;
+  }
+  .visit-section {
+    gap: 35px;
+  }
+  footer {
+    gap: 20px;
+  }
+  footer > span {
+    max-width: 180px;
+    text-align: right;
+  }
+}
+@media (max-width: 720px) {
+  .wrap {
+    width: calc(100% - 40px);
+  }
+  .site-header {
+    height: 85px;
+  }
+  .brand {
+    font-size: 35px;
+  }
+  .brand svg {
+    width: 30px;
+  }
+  nav {
+    display: none;
+  }
+  .header-book {
+    font-size: 13px;
+    gap: 12px;
+  }
+  .hero {
+    padding-top: 15px;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding-bottom: 40px;
+  }
+  .hero-copy {
+    padding: 5px 0;
+  }
+  .location {
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-size: clamp(64px, 15vw, 88px);
+    letter-spacing: -4px;
+  }
+  .hero-copy > p {
+    max-width: 360px;
+    margin-block: 22px;
+    font-size: 17px;
+  }
+  .hero-note {
+    margin-top: 23px;
+  }
+  .hero-photo {
+    height: 450px;
+    border-radius: 130px 130px 5px 5px;
+  }
+  .hero-photo figcaption {
+    flex-direction: row;
+    font-size: 11px;
+    left: 20px;
+    right: 20px;
+  }
+  .photo-stamp {
+    right: 17px;
+    top: 20px;
+    width: 90px;
+    height: 90px;
+  }
+  .intro-band {
+    padding-block: 32px;
+  }
+  .ritual-content {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .ritual-symbol {
+    font-size: 48px;
+    letter-spacing: -2px;
+  }
+  .ritual-content h2 {
+    font-size: 24px;
+  }
+  .ritual-content p {
+    font-size: 15px;
+  }
+  .sauna-section {
+    padding-block: 48px 30px;
+  }
+  .section-heading {
+    display: block;
+    margin-bottom: 25px;
+  }
+  h2 {
+    font-size: 38px;
+    letter-spacing: -1.5px;
+  }
+  .section-heading > p {
+    margin-top: 20px;
+    font-size: 15px;
+  }
+  .sauna-options {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .sauna-option {
+    padding: 22px;
+  }
+  .sauna-option.is-selected {
+    padding: 21px;
+  }
+  .sauna-option-top {
+    margin-bottom: 17px;
+  }
+  .sauna-option-bottom {
+    margin-top: 22px;
+  }
+  .booking-section {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 30px 20px;
+  }
+  .booking-copy h2 br {
+    display: none;
+  }
+  .booking-copy h2 {
+    max-width: 300px;
+  }
+  .booking-copy > p {
+    max-width: none;
+    margin-top: 18px;
+    font-size: 16px;
+  }
+  .booking-copy .included {
+    margin-top: 15px;
+  }
+  .booking-copy .included br {
+    display: none;
+  }
+  .booking-icon {
+    margin-bottom: 15px;
+  }
+  .booking-form {
+    padding: 24px 18px;
+  }
+  .form-row {
+    gap: 10px;
+  }
+  .time-options {
+    gap: 6px;
+  }
+  .form-heading h3 {
+    font-size: 22px;
+  }
+  .booking-disclaimer {
+    font-size: 11px;
+  }
+  .visit-section {
+    padding-block: 48px;
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .visit-section h2 {
+    font-size: 34px;
+  }
+  footer {
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    padding-block: 25px;
+  }
+  footer p {
+    font-size: 13px;
+    max-width: 170px;
+  }
+  footer > span {
+    margin-left: 0;
+    text-align: left;
+    max-width: none;
+    width: 100%;
+  }
+  .plan-dialog {
+    padding: 30px 23px;
+  }
+  .plan-dialog h2 {
+    font-size: 35px;
   }
 }
